@@ -1,0 +1,37 @@
+{
+  "name": "dsh-wallpaper",
+  "version": "1.0.0",
+  "description": "DSH web plugin: change the whole-app background image. Curated anime wallpaper library, online search, local import, right-click actions.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dugujun3-cloud/dsh-wallpaper.git"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "wallpaper",
+    "background",
+    "cordis"
+  ]
+}

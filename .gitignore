@@ -1,0 +1,8 @@
+node_modules/
+user/
+*.log
+.DS_Store
+assets/full/*.jpg
+assets/full/*.png
+assets/thumb/*.jpg
+assets/thumb/*.png

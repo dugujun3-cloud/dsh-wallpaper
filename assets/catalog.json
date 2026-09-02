@@ -1,0 +1,5 @@
+{
+  "//": "public build ships with an empty wallpaper library; run make-assets.py or use the in-app search/import to build your own",
+  "version": 1,
+  "items": []
+}
