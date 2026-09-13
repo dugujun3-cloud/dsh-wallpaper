@@ -25,6 +25,8 @@ Adds a `背景图片 / Background image` row right below the **Appearance (dark 
 
 ## Install
 
+> Not published to npm — install from this repository. (The npm package named `dsh-wallpaper` is an unrelated project: a Wallpaper Engine integration.)
+
 ```bash
 git clone https://github.com/dugujun3-cloud/dsh-wallpaper.git
 cd dsh-wallpaper
