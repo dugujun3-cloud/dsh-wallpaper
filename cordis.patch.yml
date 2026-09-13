@@ -1,0 +1,5 @@
+# dsh-wallpaper bundle patch: mounts the plugin into a profile layer stack.
+# The picker reads its library from <plugin>/assets/ and <plugin>/user/.
+- insert:
+    - id: dsh-wallpaper
+      name: 'dsh-wallpaper'
