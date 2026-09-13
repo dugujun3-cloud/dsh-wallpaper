@@ -1,6 +1,14 @@
 import http from 'node:http'
-import { readFileSync, existsSync, rmSync } from 'node:fs'
-import { __routeHandler } from './lib/index.js'
+import { mkdtempSync, rmSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+
+// Isolate the user library in a throwaway directory so the suite never writes to
+// a real install (the plugin reads DSH_WALLPAPER_DIR, falling back to <plugin>/user).
+// Must be set before the plugin is imported: USER_DIR is resolved at module load.
+process.env.DSH_WALLPAPER_DIR = mkdtempSync(join(tmpdir(), 'dsh-wallpaper-test-'))
+
+const { __routeHandler } = await import('./lib/index.js')
 
 const server = http.createServer((req, res) => {
   Promise.resolve(__routeHandler(req, res)).catch((e) => {
@@ -86,5 +94,6 @@ const miss = await fetch(base + '/dsh-wallpaper/nope')
 check('unknown route 404', miss.status === 404)
 
 server.close()
+rmSync(process.env.DSH_WALLPAPER_DIR, { recursive: true, force: true })
 console.log('\n' + pass + ' passed, ' + fail + ' failed')
 process.exit(fail ? 1 : 0)
